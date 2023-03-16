@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'SuperMarioFont';
+    src: url('./Font/SuperMario256.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PixelFont';
+    src: url('./Font/PublicPixel-z84yD.ttf') format('truetype');
+    font-display: swap;
+}
+
+body {
+    background-color: rgb(65,90,255);
+    overflow: hidden;
+}
+
+.mario {
+    position: relative;
+    top: 0px;
+    z-index: 1;
+}
+
+.wall {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1;
+    animation: slidein 3s linear reverse infinite;
+    top: -100px;
+    z-index: -1;
+}
+
+@keyframes slidein {
+    from {
+        left: -100%; /* start from off-screen left */
+    }
+
+    to {
+        left: 100%; /* slide to off-screen right */
+    }
+}
+
+.menu-start {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: SuperMarioFont;
+
+    #game-title {
+        font-size: 48px;
+    }
+
+    button {
+        border: none;
+        font-family: SuperMarioFont;
+        font-size: 26px;
+    }
+}
+
+#score {
+    position: absolute;
+    font-family: PixelFont;
+    right: 25px;
+    top: 25px;
+    z-index: 1;
+}
